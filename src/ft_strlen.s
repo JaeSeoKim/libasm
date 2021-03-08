@@ -7,7 +7,7 @@ _ft_strlen:
 
 loop:
     cmp BYTE [rdi + rax], 0
-    ue  return
+    je  return
     inc rax
     jmp loop
 
