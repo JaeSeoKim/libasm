@@ -1,9 +1,9 @@
 section .text
-    global _ft_strlen
-
+    global  _ft_strlen
+; size_t    ft_strlen(char *s);
+; s == rdi
 _ft_strlen:
-    mov rax, 0
-    jmp loop
+    xor rax, rax
 
 loop:
     cmp BYTE [rdi + rax], 0

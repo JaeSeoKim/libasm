@@ -6,17 +6,11 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/13 03:18:21 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/13 03:24:59 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libasm.a
-
-ASMC = nasm
-ASMFLAGS = -fmacho64
-
-AR = ar
-ARFLAGS = crs
+NAME = ft_test
 
 CC = gcc
 # CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
@@ -26,18 +20,18 @@ ifeq ($(DEBUG),true)
 endif
 
 RM = rm
-RMFLAGS = -f
+RMFLAGS = -rf
 
+INC_DIR = include
 SRC_DIR = src
 OBJ_DIR = obj
 
-SRCS = $(wildcard $(SRC_DIR)/*.s)
-BONUS_SRCS = $(wildcard $(SRC_BONUS_DIR)/*.s)
+LIBASM = ../libasm.a
 
-vpath %.s $(SRC_DIR)
+SRCS = $(wildcard $(SRC_DIR)/*.c)
+BONUS_SRCS = $(wildcard $(SRC_BONUS_DIR)/*.c)
 
-OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.s=.o)))
-OBJS_BONUS = $(addprefix $(OBJ_DIR)/, $(notdir $(BONUS_SRCS:.s=.o)))
+vpath %.c $(SRC_DIR)
 
 # Color
 CL_BOLD	 = \e[1m
@@ -59,44 +53,15 @@ CRLF= \n$(LF)
 all : $(NAME)
 
 clean :
-	@$(RM) $(RMFLAGS) $(OBJS) $(OBJS_BONUS)
-	@printf "$(LF)🧹 $(FG_TEXT)Cleaning $(FG_TEXT_PRIMARY)$(NAME)'s Object files...\n"
+	@$(RM) $(RMFLAGS) $(NAME) $(NAME).dSYM
+	@printf "$(LF)🧹 $(FG_TEXT)Cleaning $(FG_TEXT_PRIMARY)$(NAME)'\n"
 
-fclean : clean
-	@$(RM) $(RMFLAGS) $(NAME)
-	@printf "$(LF)🧹 $(FG_TEXT)Cleaning $(FG_TEXT_PRIMARY)$(NAME)\n"
+re : clean all
 
-re : fclean all
-
-re_bonus : fclean bonus
-
-lib_clean : $(LIBFT)_fclean $(MLX)_clean
-
-$(OBJ_DIR) :
-	@mkdir $(OBJ_DIR)
-
-$(OBJ_DIR)/%.o : %.s | $(OBJ_DIR)
-	@$(ASMC) $(ASMFLAGS) $< -o $@
-	@printf "$(LF)🚧 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)from $(FG_TEXT_PRIMARY)$<"
-
-$(NAME) : $(OBJS)
+$(NAME) : $(LIBASM)
 	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
 	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$(NAME)$(FG_TEXT)!\n"
-	@$(AR) $(ARFLAGS) $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) $(LIBASM) -I $(INC_DIR) -o $(NAME) $(SRCS)
 	@printf "$(LF)🎉 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n$(NO_COLOR)"
 
-bonus : $(OBJS) $(OBJS_BONUS)
-	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
-	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)cub3D$(FG_TEXT)!\n"
-	@$(AR) $(ARFALGS) $(NAME) $(OBJS) $(OBJS_BONUS)
-	@printf "$(LF)🎉 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n$(NO_COLOR)"
-
-TEST_DIR = test
-TEST = $(TEST_DIR)/ft_test
-
-test : $(NAME) $(TEST_FILE)
-	@make -C $(TEST_DIR) re
-	@$(TEST)
-
-.PHONY: all clean fclean re test \
-	bonus
+.PHONY: all clean re 
