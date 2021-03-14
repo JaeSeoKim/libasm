@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:11:03 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 18:47:02 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 19:09:25 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <fcntl.h>
 # include <string.h>
 # include <errno.h>
 
@@ -32,5 +33,8 @@ void	ft_strcmp_test(void);
 
 ssize_t	ft_write(int fd, const char *buf, size_t count);
 void	ft_write_test(void);
+
+ssize_t	ft_read(int fd, const char *buf, size_t count);
+void	ft_read_test(void);
 
 #endif

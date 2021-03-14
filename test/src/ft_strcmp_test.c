@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strcmp_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jaeskim <jaeskim.student.42seoul.kr>       +#+  +:+       +#+        */
+/*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 15:47:55 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 18:03:48 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 19:05:37 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	do_test(char *s1, char *s2)
 	b = ft_strcmp(s1, s2);
 	if ((a < 0 && b >= a) || (a > 0 && b <= 0))
 	{
-		printf("diff ori: %d, ft: %d\n", a, b);
+		printf("KO: diff ori: %d, ft: %d\n", a, b);
 		exit(1);
 	}
 }

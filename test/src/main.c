@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 01:17:49 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 18:50:39 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 18:59:32 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	main(void)
 	ft_strcpy_test();
 	ft_strcmp_test();
 	ft_write_test();
+	ft_read_test();
 	return (0);
 }
