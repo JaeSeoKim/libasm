@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/13 03:24:59 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/14 16:14:08 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -58,7 +58,7 @@ clean :
 
 re : clean all
 
-$(NAME) : $(LIBASM)
+$(NAME) : $(LIBASM) $(SRCS)
 	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
 	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$(NAME)$(FG_TEXT)!\n"
 	@$(CC) $(CFLAGS) $(LIBASM) -I $(INC_DIR) -o $(NAME) $(SRCS)

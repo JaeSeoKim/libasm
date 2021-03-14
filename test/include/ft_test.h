@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:11:03 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/13 03:36:19 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 15:45:07 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,14 +18,15 @@
 # include <unistd.h>
 # include <string.h>
 
-char	*ft_strcpy(char *dst, const char *src);
-void	test_strcpy(void);
+extern  char *g_string[10];
 
-# define CASE_1 "test case one!"
-# define CASE_2 "test case two!"
-# define CASE_3 "Hello WOOOOORLD!"
+char	*ft_strcpy(char *dst, const char *src);
+void	ft_strcpy_test(void);
 
 size_t	ft_strlen(const char *s);
-void	test_strlen(void);
+void	ft_strlen_test(void);
+
+int     ft_strcmp(const char *s1, const char *s2);
+void    ft_strcmp_test(void);
 
 #endif

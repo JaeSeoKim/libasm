@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test_strlen.c                                      :+:      :+:    :+:   */
+/*   ft_strlen_test.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:16:00 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/13 03:37:37 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 16:34:42 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,19 @@
 
 static void	do_test(char *s)
 {
-	printf("try... $%s$\n", s);
+	printf("try... ft_strlen(\"%s\");\n", s);
 	if (strlen(s) != ft_strlen(s))
 		exit(1);
-	printf("Success!\n");
 }
 
-void	test_strlen(void)
+void	ft_strlen_test(void)
 {
+	int		i;
+
+	printf("===================================================\n");
 	printf("testing ft_strlen();\n");
-	do_test(CASE_1);
-	do_test(CASE_2);
-	do_test(CASE_3);
+	i = 0;
+	while (i < 10)
+		do_test(g_string[i++]);
+	printf("SUCCESS!\n");
 }
