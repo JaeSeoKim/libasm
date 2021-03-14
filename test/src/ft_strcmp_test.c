@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim.student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 15:47:55 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 16:34:12 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 16:39:09 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static void	do_test(char *s1, char *s2)
 {
 	int	a;
-	int b;
+	int	b;
 
 	printf("try... ft_strcmp(\"%s\", \"%s\");\n", s1, s2);
 	a = strcmp(s1, s2);
@@ -30,7 +30,7 @@ static void	do_test(char *s1, char *s2)
 void	ft_strcmp_test(void)
 {
 	int	i;
-	
+
 	printf("==========================================\n");
 	printf("ft_strlen_test();\n");
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 01:17:49 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 16:14:26 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 16:38:45 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ char	*g_string[10] = {
 	"test program!"
 };
 
-
 void	putstr_slow(char *s)
 {
 	while (*s)
@@ -38,7 +37,7 @@ void	putstr_slow(char *s)
 int	main(void)
 {
 	system("clear");
-	//putstr_slow("🤩 TEST Libasm!!!! 🚀\n");
+	putstr_slow("🤩 TEST Libasm!!!! 🚀\n");
 	ft_strlen_test();
 	ft_strcpy_test();
 	ft_strcmp_test();
