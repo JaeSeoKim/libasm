@@ -1,0 +1,25 @@
+{
+  "tasks": [
+    {
+      "type": "shell",
+      "label": "[libasm] debug ft_test",
+      "command": "/usr/bin/make",
+      "args": [
+        "-C",
+        "${workspaceFolder}",
+        "test_build"
+      ],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": [
+        "$gcc"
+      ],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    }
+  ],
+  "version": "2.0.0"
+}

@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/13 03:18:21 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/14 19:54:06 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -94,9 +94,11 @@ bonus : $(OBJS) $(OBJS_BONUS)
 TEST_DIR = test
 TEST = $(TEST_DIR)/ft_test
 
-test : $(NAME) $(TEST_FILE)
-	@make -C $(TEST_DIR) re
+test : test_build
 	@$(TEST)
 
-.PHONY: all clean fclean re test \
+test_build : $(NAME) $(TEST_FILE)
+	@make -C $(TEST_DIR) re
+
+.PHONY: all clean fclean re test test_build \
 	bonus

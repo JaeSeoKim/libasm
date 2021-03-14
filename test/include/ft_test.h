@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:11:03 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 19:09:25 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/14 22:14:11 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@
 # include <fcntl.h>
 # include <string.h>
 # include <errno.h>
+
+typedef struct s_list
+{
+	void			*data;
+	struct s_list	*next;
+}					t_list;
 
 extern char	*g_string[10];
 
@@ -36,5 +42,8 @@ void	ft_write_test(void);
 
 ssize_t	ft_read(int fd, const char *buf, size_t count);
 void	ft_read_test(void);
+
+char	*ft_strdup(const char *s1);
+void	ft_strdup_test(void);
 
 #endif
