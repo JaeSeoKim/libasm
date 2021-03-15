@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_test.h                                          :+:      :+:    :+:   */
+/*   ft_test_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:11:03 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/15 20:52:10 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/15 21:37:13 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_TEST_H
-# define FT_TEST_H
+#ifndef FT_TEST_BONUS_H
+# define FT_TEST_BONUS_H
 
 # include <stdio.h>
 # include <stdlib.h>
@@ -20,24 +20,16 @@
 # include <string.h>
 # include <errno.h>
 
+typedef struct s_list
+{
+	void			*data;
+	struct s_list	*next;
+}					t_list;
+
 extern char	*g_string[10];
 
-char	*ft_strcpy(char *dst, const char *src);
-void	ft_strcpy_test(void);
-
-size_t	ft_strlen(const char *s);
-void	ft_strlen_test(void);
-
-int		ft_strcmp(const char *s1, const char *s2);
-void	ft_strcmp_test(void);
-
-ssize_t	ft_write(int fd, const char *buf, size_t count);
-void	ft_write_test(void);
-
-ssize_t	ft_read(int fd, const char *buf, size_t count);
-void	ft_read_test(void);
-
-char	*ft_strdup(const char *s1);
-void	ft_strdup_test(void);
+int		atoi_base(char *str, char *base);
+int		ft_atoi_base(char *str, char *base);
+void	ft_atoi_base_test(void);
 
 #endif

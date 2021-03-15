@@ -6,14 +6,14 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/14 19:54:06 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/16 02:02:44 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 
 ASMC = nasm
-ASMFLAGS = -fmacho64
+ASMFLAGS = -fmacho64 -g
 
 AR = ar
 ARFLAGS = crs
@@ -31,10 +31,12 @@ RMFLAGS = -f
 SRC_DIR = src
 OBJ_DIR = obj
 
+SRC_BONUS_DIR = src_bonus
+
 SRCS = $(wildcard $(SRC_DIR)/*.s)
 BONUS_SRCS = $(wildcard $(SRC_BONUS_DIR)/*.s)
 
-vpath %.s $(SRC_DIR)
+vpath %.s $(SRC_DIR) $(SRC_BONUS_DIR)
 
 OBJS = $(addprefix $(OBJ_DIR)/, $(notdir $(SRCS:.s=.o)))
 OBJS_BONUS = $(addprefix $(OBJ_DIR)/, $(notdir $(BONUS_SRCS:.s=.o)))
@@ -87,8 +89,8 @@ $(NAME) : $(OBJS)
 
 bonus : $(OBJS) $(OBJS_BONUS)
 	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
-	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)cub3D$(FG_TEXT)!\n"
-	@$(AR) $(ARFALGS) $(NAME) $(OBJS) $(OBJS_BONUS)
+	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$(NAME)_bonus!$(FG_TEXT)!\n"
+	$(AR) $(ARFLAGS) $(NAME) $(OBJS) $(OBJS_BONUS)
 	@printf "$(LF)🎉 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n$(NO_COLOR)"
 
 TEST_DIR = test
@@ -100,5 +102,12 @@ test : test_build
 test_build : $(NAME) $(TEST_FILE)
 	@make -C $(TEST_DIR) re
 
-.PHONY: all clean fclean re test test_build \
-	bonus
+bonus_test : bonus_test_build
+	@$(TEST)
+
+bonus_test_build : bonus $(TEST_FILE)
+	@make -C $(TEST_DIR) clean bonus
+
+.PHONY: all clean fclean re \
+	test test_build \
+	bonus bonus_test bonus_test_build

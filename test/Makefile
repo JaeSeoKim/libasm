@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/14 16:14:08 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/15 22:34:49 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,8 @@ RMFLAGS = -rf
 INC_DIR = include
 SRC_DIR = src
 OBJ_DIR = obj
+
+SRC_BONUS_DIR = src_bonus
 
 LIBASM = ../libasm.a
 
@@ -64,4 +66,10 @@ $(NAME) : $(LIBASM) $(SRCS)
 	@$(CC) $(CFLAGS) $(LIBASM) -I $(INC_DIR) -o $(NAME) $(SRCS)
 	@printf "$(LF)🎉 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n$(NO_COLOR)"
 
-.PHONY: all clean re 
+bonus : $(LIBASM) $(BONUS_SRCS)
+	@printf "$(LF)🚀 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$(NAME)'s Object files $(FG_TEXT)!"
+	@printf "$(CRLF)📚 $(FG_TEXT)Create $(FG_TEXT_PRIMARY)$(NAME)$(FG_TEXT)!\n"
+	@$(CC) $(CFLAGS) $(LIBASM) -I $(INC_DIR) -o $(NAME) $(BONUS_SRCS)
+	@printf "$(LF)🎉 $(FG_TEXT)Successfully Created $(FG_TEXT_PRIMARY)$@ $(FG_TEXT)!\n$(NO_COLOR)"
+
+.PHONY: all clean re bonus

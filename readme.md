@@ -23,11 +23,17 @@ You must submit a main that will test your functions and that will compile with 
 You must rewrite the following functions in asm:
 
 - ft_strlen (man 3 strlen)
+    > size_t	ft_strlen(const char *s);
 - ft_strcpy (man 3 strcpy)
+    > char	*ft_strcpy(char *dst, const char *src);
 - ft_strcmp (man 3 strcmp)
+    > int		ft_strcmp(const char *s1, const char *s2);
 - ft_write (man 2 write)
+    > ssize_t	ft_write(int fd, const char *buf, size_t count);
 - ft_read (man 2 read)
+    > ssize_t	ft_read(int fd, const char *buf, size_t count);
 - ft_strdup (man 3 strdup, you can call to malloc)
+    > char	*ft_strdup(const char *s1);
 
 You must check for errors during syscalls and properly set them when needed
 
@@ -39,7 +45,7 @@ For that, you are allowed to call the extern ___error.
 
 You can rewrite these functions in asm. The linked list function will use the following
 structure:
- 
+
 ```c
 typedef sturct      s_list
 {
@@ -49,6 +55,17 @@ typedef sturct      s_list
 ```
 
 - ft_atoi_base (like the one in the piscine)
+    > int ft_atoi_base(char *str, char *base);
+    > - Write a function that converts the initial portion of the string pointed by str to int
+    > representation.
+    > - str is in a specific base given as a second parameter.
+    > - excepted the base rule, the function should work exactly like ft_atoi.
+    > - If there’s an invalid argument, the function should return 0. Examples of invalid
+    > - arguments :
+    >   - base is empty or size of 1;
+    >   - base contains the same character twice ;
+    >   - base contains + or - or whitespaces;
+
 - ft_list_push_front (like the one in the piscine)
 - ft_list_size (like the one in the piscine)
 - ft_list_sort (like the one in the piscine)

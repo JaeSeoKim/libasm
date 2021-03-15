@@ -6,11 +6,11 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 01:17:49 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/15 20:46:57 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/15 22:40:38 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_test.h"
+#include "ft_test_bonus.h"
 
 char	*g_string[10] = {
 	"hello world!",
@@ -37,12 +37,7 @@ void	putstr_slow(char *s)
 int	main(void)
 {
 	system("clear");
-	putstr_slow("🤩 TEST Libasm!!!! 🚀\n");
-	ft_strlen_test();
-	ft_strcpy_test();
-	ft_strcmp_test();
-	ft_write_test();
-	ft_read_test();
-	ft_strdup_test();
+	// putstr_slow("🤩 TEST Libasm BONUS!!!! 🚀\n");
+	ft_atoi_base_test();
 	return (0);
 }
