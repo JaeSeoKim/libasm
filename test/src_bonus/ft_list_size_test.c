@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_list_push_front_test.c                          :+:      :+:    :+:   */
+/*   ft_list_size_test.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/16 04:29:50 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/16 05:50:55 by jaeskim          ###   ########.fr       */
+/*   Created: 2021/03/16 05:35:17 by jaeskim           #+#    #+#             */
+/*   Updated: 2021/03/16 05:56:36 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,33 +18,41 @@ static void	malloc_fail(void)
 	exit(1);
 }
 
-static void	do_test(void)
+static void	do_test(int	n)
 {
-	const char	*data = "data";
-	t_list		*list;
-	t_list		*list_old;
+	int		i;
+	t_list	*list;
+	int		list_size;
 
-	list = malloc(sizeof(t_list));
-	if (list == NULL)
-		malloc_fail();
-	list_old = list;
-	list->next = 0;
-	ft_list_push_front(&list, (void *)data);
-	if (list == list_old || list->data != data || list->next != list_old)
+	printf("try... ft_list_size(list_size_%d);\n", n);
+	list = 0;
+	if (n > 0)
 	{
-		printf("KO: diff ori list %p, list %p, list->next %p\n",
-			list_old, list, list->next);
-		printf("data %p, list->data %p\n",
-			data, list->data);
+		list = malloc(sizeof(t_list));
+		if (list == NULL)
+			malloc_fail();
+		list->next = NULL;
+	}
+	i = 0;
+	while (i < n - 1)
+		ft_list_push_front(&list, g_string[i++]);
+	list_size = ft_list_size(list);
+	if (list_size != n)
+	{
+		printf("KO: diff ft_list_size: %d, real_size %d\n", list_size, n);
 		exit(1);
 	}
 	ft_lstclear(list);
 }
 
-void	ft_list_push_front_test(void)
+void	ft_list_size_test(void)
 {
+	int	i;
+
 	printf("===================================================\n");
-	printf("testing ft_list_push_front();\n");
-	do_test();
+	printf("testing ft_list_size();\n");
+	i = 0;
+	while (i < 10)
+		do_test(i++);
 	printf("SUCCESS!\n");
 }
