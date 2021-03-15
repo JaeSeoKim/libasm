@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 01:17:49 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/15 22:40:38 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/16 05:14:30 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,13 @@ void	putstr_slow(char *s)
 	}
 }
 
+t_list	*ft_list_create_elem(void *data);
+
 int	main(void)
 {
-	system("clear");
+	// system("clear");
 	// putstr_slow("🤩 TEST Libasm BONUS!!!! 🚀\n");
-	ft_atoi_base_test();
+	// ft_atoi_base_test();
+	ft_list_push_front_test();
 	return (0);
 }

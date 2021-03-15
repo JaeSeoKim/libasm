@@ -67,6 +67,11 @@ typedef sturct      s_list
     >   - base contains + or - or whitespaces;
 
 - ft_list_push_front (like the one in the piscine)
+    > void ft_list_push_front(t_list **begin_list, void *data);
+    > - Create the function ft_list_push_front which adds a new element of type t_list to the beginning of the list.
+    > - It should assign data to the given argument.
+    > - If necessary, it’ll update the pointer at the beginning of the list.
+    > - Here’s how it should be prototyped
 - ft_list_size (like the one in the piscine)
 - ft_list_sort (like the one in the piscine)
 - ft_list_remove_if (like the one in the piscine)
