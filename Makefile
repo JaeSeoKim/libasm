@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/16 02:02:44 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/16 21:17:41 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -102,12 +102,12 @@ test : test_build
 test_build : $(NAME) $(TEST_FILE)
 	@make -C $(TEST_DIR) re
 
-bonus_test : bonus_test_build
+test_bonus : test_build_bonus
 	@$(TEST)
 
-bonus_test_build : bonus $(TEST_FILE)
+test_build_bonus : bonus $(TEST_FILE)
 	@make -C $(TEST_DIR) clean bonus
 
 .PHONY: all clean fclean re \
 	test test_build \
-	bonus bonus_test bonus_test_build
+	bonus test_bonus test_build_bonus

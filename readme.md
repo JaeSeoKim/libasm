@@ -77,4 +77,8 @@ typedef sturct      s_list
     > - Create the function ft_list_size which returns the number of elements in the list.
 
 - ft_list_sort (like the one in the piscine)
+    > void ft_list_sort(t_list **begin_list, int (*cmp)());
+    > - Create the function ft_list_sort which sorts the list’s  elements by ascending order by comparing two elements by comparing their data with a function.
+    > - Function pointed by cmp will be used as follows :
+    >   (*cmp)(list_ptr->data, list_other_ptr->data);
 - ft_list_remove_if (like the one in the piscine)

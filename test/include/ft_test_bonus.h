@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/13 03:11:03 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/16 05:50:39 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/16 19:08:50 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,5 +39,8 @@ void	ft_list_push_front_test(void);
 
 int		ft_list_size(t_list *begin_list);
 void	ft_list_size_test(void);
+
+void	ft_list_sort(t_list **begin_list, int (*cmp)());
+void	ft_list_sort_test(void);
 
 #endif

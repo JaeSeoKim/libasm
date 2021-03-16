@@ -6,7 +6,7 @@
 #    By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/06 21:07:58 by jaeskim           #+#    #+#              #
-#    Updated: 2021/03/15 22:34:49 by jaeskim          ###   ########.fr        #
+#    Updated: 2021/03/16 18:56:11 by jaeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,9 +15,6 @@ NAME = ft_test
 CC = gcc
 # CFLAGS = -Wall -Wextra -Werror -g -fsanitize=address
 CFLAGS = -g -fsanitize=address
-ifeq ($(DEBUG),true)
-	CDEBUG = -g
-endif
 
 RM = rm
 RMFLAGS = -rf
