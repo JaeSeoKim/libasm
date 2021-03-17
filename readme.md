@@ -23,17 +23,17 @@ You must submit a main that will test your functions and that will compile with 
 You must rewrite the following functions in asm:
 
 - ft_strlen (man 3 strlen)
-    > size_t	ft_strlen(const char *s);
+    > `size_t	ft_strlen(const char *s);`
 - ft_strcpy (man 3 strcpy)
-    > char	*ft_strcpy(char *dst, const char *src);
+    > `char	*ft_strcpy(char *dst, const char *src);`
 - ft_strcmp (man 3 strcmp)
-    > int		ft_strcmp(const char *s1, const char *s2);
+    > `int		ft_strcmp(const char *s1, const char *s2);`
 - ft_write (man 2 write)
-    > ssize_t	ft_write(int fd, const char *buf, size_t count);
+    > `ssize_t	ft_write(int fd, const char *buf, size_t count);`
 - ft_read (man 2 read)
-    > ssize_t	ft_read(int fd, const char *buf, size_t count);
+    > `ssize_t	ft_read(int fd, const char *buf, size_t count);`
 - ft_strdup (man 3 strdup, you can call to malloc)
-    > char	*ft_strdup(const char *s1);
+    > `char	*ft_strdup(const char *s1);`
 
 You must check for errors during syscalls and properly set them when needed
 
@@ -55,7 +55,7 @@ typedef sturct      s_list
 ```
 
 - ft_atoi_base (like the one in the piscine)
-    > int ft_atoi_base(char *str, char *base);
+    > `int ft_atoi_base(char *str, char *base);`
     > - Write a function that converts the initial portion of the string pointed by str to int
     > representation.
     > - str is in a specific base given as a second parameter.
@@ -67,7 +67,7 @@ typedef sturct      s_list
     >   - base contains + or - or whitespaces;
 
 - ft_list_push_front (like the one in the piscine)
-    > void ft_list_push_front(t_list **begin_list, void *data);
+    > `void ft_list_push_front(t_list **begin_list, void *data);`
     > - Create the function ft_list_push_front which adds a new element of type t_list to the beginning of the list.
     > - It should assign data to the given argument.
     > - If necessary, it’ll update the pointer at the beginning of the list.
@@ -77,8 +77,14 @@ typedef sturct      s_list
     > - Create the function ft_list_size which returns the number of elements in the list.
 
 - ft_list_sort (like the one in the piscine)
-    > void ft_list_sort(t_list **begin_list, int (*cmp)());
+    > `void ft_list_sort(t_list **begin_list, int (*cmp)());`
     > - Create the function ft_list_sort which sorts the list’s  elements by ascending order by comparing two elements by comparing their data with a function.
     > - Function pointed by cmp will be used as follows :
-    >   (*cmp)(list_ptr->data, list_other_ptr->data);
+    >   `(*cmp)(list_ptr->data, list_other_ptr->data);`
 - ft_list_remove_if (like the one in the piscine)
+    > `void	ft_list_remove_if(t_list **begin_list, void *data_ref, int (*cmp)(), void (*free_fct)(void *));`
+    > - Create the function ft_list_remove_if which removes from the list, all elements whose data compared to data_ref using cmp, makes cmp return 0.
+    > - The data from an element to be erased should be freed using free_fct
+    > - Function pointed by cmp and by free_fct will be used as follows :
+    >   `(*cmp)(list_ptr->data, data_ref);`
+    >   `(*free_fct)(list_ptr->data);`

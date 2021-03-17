@@ -6,11 +6,17 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 04:29:50 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/16 05:50:55 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/16 21:31:19 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_test_bonus.h"
+
+static void	noting(void *c)
+{
+	if (c)
+		return ;
+}
 
 static void	malloc_fail(void)
 {
@@ -38,7 +44,7 @@ static void	do_test(void)
 			data, list->data);
 		exit(1);
 	}
-	ft_lstclear(list);
+	ft_lstclear(list, noting);
 }
 
 void	ft_list_push_front_test(void)

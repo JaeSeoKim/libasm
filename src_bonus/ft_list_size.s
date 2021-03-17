@@ -4,9 +4,6 @@ section .text
 ; begin_list == rdi
 _ft_list_size:
 init:
-  push	rbp
-  mov		rbp, rsp
-
   xor   rax, rax
 loop:
   cmp   rdi, 0
@@ -16,5 +13,4 @@ loop:
   jmp   loop
 
 return:
-  leave
   ret

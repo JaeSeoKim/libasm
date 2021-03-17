@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 17:56:16 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/16 21:12:53 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/16 21:46:31 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,7 @@ static void	do_test(void)
 	}
 	ft_list_sort(&list, cmp);
 	do_test_check(list);
+	ft_lstclear(list, free);
 }
 
 void	ft_list_sort_test(void)

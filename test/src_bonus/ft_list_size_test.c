@@ -6,11 +6,17 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/16 05:35:17 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/16 05:56:36 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/16 21:31:17 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_test_bonus.h"
+
+static void	noting(void *c)
+{
+	if (c)
+		return ;
+}
 
 static void	malloc_fail(void)
 {
@@ -42,7 +48,7 @@ static void	do_test(int	n)
 		printf("KO: diff ft_list_size: %d, real_size %d\n", list_size, n);
 		exit(1);
 	}
-	ft_lstclear(list);
+	ft_lstclear(list, noting);
 }
 
 void	ft_list_size_test(void)

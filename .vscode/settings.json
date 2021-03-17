@@ -5,6 +5,7 @@
     "array": "c",
     "string": "c",
     "string_view": "c",
-    "vector": "c"
+    "vector": "c",
+    "ft_test_bonus.h": "c"
   }
 }
