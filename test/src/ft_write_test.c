@@ -6,7 +6,7 @@
 /*   By: jaeskim <jaeskim@student.42seoul.kr>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/14 18:28:25 by jaeskim           #+#    #+#             */
-/*   Updated: 2021/03/14 19:22:27 by jaeskim          ###   ########.fr       */
+/*   Updated: 2021/03/17 21:09:14 by jaeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ static void	do_test(int fd, char *s)
 	int	ft[2];
 	int	s_len;
 
-	printf("\ntry... ft_write(%d, \"%s\", %d);\n", fd, s, s_len);
 	s_len = strlen(s);
+	printf("\ntry... ft_write(%d, \"%s\", %d);\n", fd, s, s_len);
 	ori[0] = write(fd, s, s_len);
 	ori[1] = errno;
 	ft[0] = ft_write(fd, s, s_len);
